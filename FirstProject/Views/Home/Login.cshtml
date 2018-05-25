@@ -1,30 +1,64 @@
-﻿
+﻿@model FirstProject.Models.signin
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-wrapper">
+            <div class="box">
+                <div class="content-wrap">
+                    <h6>Sign In</h6>
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-wrapper">
-                <div class="box">
-                    <div class="content-wrap">
-                        <h6>Sign In</h6>
-                       
-                        <input class="form-control" type="text" placeholder="E-mail address">
-                        <input class="form-control" type="password" placeholder="Password">
-                        <div class="action">
-                            <a class="btn btn-primary signup" href="index.html">Login</a>
+                    @*<input class="form-control" type="text" placeholder="E-mail address">
+                    <input class="form-control" type="password" placeholder="Password">
+                    <div class="action">
+                        <a class="btn btn-primary signup" href="index.html">Login</a>
+                    </div>*@
+
+                    @using (Html.BeginForm())
+                    {
+
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            @if (ViewBag.Message != "")
+                            {
+                                <div class="text-danger">*@ViewBag.Message</div>
+                            }
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @placeholder = "UserName", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @type ="password", @placeholder = "Password", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                                                       
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default btn-primary signup" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    }
+
                 </div>
-                <div class="already">
-                    <p>Don't have an account yet?</p>
-                   
-                    @Html.ActionLink("Signup", "Signup", "Home")
-                </div>
+            </div>
+            <div class="already">
+                <p>Don't have an account yet?</p>
+
+                @Html.ActionLink("Signup", "Signup", "Home")
             </div>
         </div>
     </div>
+</div>
 

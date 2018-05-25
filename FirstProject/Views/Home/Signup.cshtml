@@ -1,4 +1,4 @@
-﻿
+﻿@model FirstProject.Models.UserDetail
 @{
     ViewBag.Title = "Signup";
 }
@@ -10,18 +10,83 @@
             <div class="box">
                 <div class="content-wrap">
                     <h6>Sign Up</h6>
-                    <input class="form-control" type="text" placeholder="E-mail address">
-                    <input class="form-control" type="password" placeholder="Password">
-                    <input class="form-control" type="password" placeholder="Confirm Password">
-                    <div class="action">
-                        <a class="btn btn-primary signup" href="index.html">Sign Up</a>
+
+                    @using (Html.BeginForm())
+                    {
+                      
+                    <div class="form-horizontal">
+                        <h4>UserDetail</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @placeholder = "UserName", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.middlename, new { htmlAttributes = new { @placeholder = "Middle Name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.middlename, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @placeholder = "Last Name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @placeholder = "Email", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.mobileNo, new { htmlAttributes = new { @placeholder = "Mobile Number", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.mobileNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class=" col-md-10">
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @type = "password", @placeholder = "Password", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class=" col-md-10">
+                                @Html.EditorFor(model => model.repassword, new { htmlAttributes = new { @type = "password", @placeholder = "Password", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.repassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class=" col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default btn-primary signup" />
+                            </div>
+                        </div>
                     </div>
+                    }
+
                 </div>
             </div>
             <div class="already">
                 <p>Have an account already?</p>
                 @Html.ActionLink("Login", "Login", "Home")
-
             </div>
         </div>
     </div>
