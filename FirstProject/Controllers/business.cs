@@ -8,10 +8,10 @@ namespace FirstProject.Controllers
 {
     public class business
     {
-        DataEntities dc = new DataEntities();
+        MDPEntities dc = new MDPEntities();
         public bool checkLogin(signin user)
         {
-            var flag = from x in dc.UserDetails.ToList() where (x.username == user.username && x.password == user.password) select x;
+            var flag = from x in dc.Users.ToList() where (x.Username == user.username && x.Password == user.password) select x;
             if (flag.Count() == 1)
                 return true;
             return false;

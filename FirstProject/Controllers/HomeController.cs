@@ -13,7 +13,15 @@ namespace FirstProject.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["username"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.Message = "Please Logind.";
+                return View("Login");
+            }
         }
 
         public ActionResult About()
@@ -30,6 +38,16 @@ namespace FirstProject.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            ViewBag.Message = "";
+            if (Session["username"] != null)
+            {
+                Session.Remove("username");
+            }
+            return View("Login");
+
+        }
         [HttpGet]
         public ActionResult Login()
         {
@@ -48,9 +66,10 @@ namespace FirstProject.Controllers
                 //var ticket = new FormsAuthenticationTicket(login.username, false, 20);
                 //string encrypted = FormsAuthentication.Encrypt(ticket);
                 //var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
-                var cookie = new HttpCookie("username", login.username);
-                cookie.HttpOnly = true;
-                Response.Cookies.Add(cookie);
+                Session["username"] = login.username;
+                //var cookie = new HttpCookie("username", login.username);
+                //cookie.HttpOnly = true;
+                //Response.Cookies.Add(cookie);
 
                 if (Url.IsLocalUrl(ReturnUrl))
                 {
@@ -76,23 +95,28 @@ namespace FirstProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Signup(UserDetail newUser)
+        public ActionResult Signup(User newUser)
         {
             string message = "";
-            DataEntities dc = new DataEntities();
+            MDPEntities dc = new MDPEntities();
             if (ModelState.IsValid)
             {
-                dc.UserDetails.Add(newUser);
+                dc.Users.Add(newUser);
                 dc.SaveChanges();
-                var cookie = new HttpCookie("username", newUser.username);
-                cookie.HttpOnly = true;
-                Response.Cookies.Add(cookie);
+                //var cookie = new HttpCookie("username", newUser.Username);
+                //cookie.HttpOnly = true;
+                //Response.Cookies.Add(cookie);
+                Session["username"] = newUser.Username;
                 return RedirectToAction("Index");
             }
             ViewBag.Message = message;
             return View(newUser);
         }
 
+        public ActionResult ViewInfo()
+        {
+            return Redirect("~/display.aspx");
+        }
 
     }
 }

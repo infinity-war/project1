@@ -152,28 +152,41 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\business.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Display.aspx.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Display.aspx.designer.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Information.cs">
+      <DependentUpon>MDP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lead.cs">
+      <DependentUpon>MDP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MDP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MDP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MDP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDP.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\signin.cs" />
     <Compile Include="Models\signup.cs" />
-    <Compile Include="Models\UserDetail.cs">
-      <DependentUpon>UserDetails.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDetails.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDetails.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDetails.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDetails.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDetails.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDetails.edmx</DependentUpon>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MDP.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,6 +203,7 @@
     <Content Include="Content\css\buttons.css" />
     <Content Include="Content\css\forms.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\customStyle.css" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\forms.js" />
     <Content Include="Content\js\tables.js" />
@@ -813,19 +827,20 @@
     <Content Include="Content\vendors\wysiwyg\bootstrap-wysihtml5.css" />
     <Content Include="Content\vendors\wysiwyg\bootstrap-wysihtml5.js" />
     <Content Include="Content\vendors\wysiwyg\wysihtml5-0.3.0.js" />
+    <Content Include="Display.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\UserDetails.Context.tt">
+    <Content Include="Models\MDP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDetails.edmx</DependentUpon>
-      <LastGenOutput>UserDetails.Context.cs</LastGenOutput>
+      <DependentUpon>MDP.edmx</DependentUpon>
+      <LastGenOutput>MDP.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\UserDetails.tt">
+    <Content Include="Models\MDP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDetails.edmx</DependentUpon>
-      <LastGenOutput>UserDetails.cs</LastGenOutput>
+      <DependentUpon>MDP.edmx</DependentUpon>
+      <LastGenOutput>MDP.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -891,12 +906,12 @@
     <Content Include="Content\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.ttf" />
     <Content Include="Content\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.woff" />
     <Content Include="Content\vendors\tinymce\js\tinymce\skins\lightgray\fonts\readme.md" />
-    <EntityDeploy Include="Models\UserDetails.edmx">
+    <EntityDeploy Include="Models\MDP.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserDetails.Designer.cs</LastGenOutput>
+      <LastGenOutput>MDP.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\UserDetails.edmx.diagram">
-      <DependentUpon>UserDetails.edmx</DependentUpon>
+    <Content Include="Models\MDP.edmx.diagram">
+      <DependentUpon>MDP.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -925,6 +940,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Signup.cshtml" />
+    <Content Include="Views\Home\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

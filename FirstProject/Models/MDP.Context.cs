@@ -13,10 +13,10 @@ namespace FirstProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataEntities : DbContext
+    public partial class MDPEntities : DbContext
     {
-        public DataEntities()
-            : base("name=DataEntities")
+        public MDPEntities()
+            : base("name=MDPEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace FirstProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserDetail> UserDetails { get; set; }
+        public virtual DbSet<Information> Information { get; set; }
+        public virtual DbSet<Lead> Leads { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

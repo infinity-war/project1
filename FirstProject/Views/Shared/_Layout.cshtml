@@ -9,6 +9,7 @@
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
     <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/customStyle.css" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -30,13 +31,21 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    
+                    @if(Session["username"]==null)
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Logout"+"  ( " +Session["username"]+" )", "Logout", "Home")</li>
+                    }
                 </ul>
             </div>
         </div>
     </div>
    
-    <div class="page-content">
+    <div class="page-content" style="margin-top: 70px;">
         @RenderBody()
       
         

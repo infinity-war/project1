@@ -14,28 +14,27 @@ namespace FirstProject.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class UserDetail
+    public partial class User
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string username { get; set; }
+        public string Fname { get; set; }
         [Required]
-        public string firstname { get; set; }
+        public string Mname { get; set; }
         [Required]
-        public string middlename { get; set; }
+        public string Lname { get; set; }
         [Required]
-        public string lastname { get; set; }
+        [DataType(DataType.EmailAddress, ErrorMessage = "The email address is not valid")]
+        public string Email { get; set; }
+        public Nullable<int> MobileNo { get; set; }
         [Required]
-        [DataType(DataType.EmailAddress,ErrorMessage = "The email address is not valid")]
-        public string email { get; set; }
-        public Nullable<int> mobileNo { get; set; }
+        public string Username { get; set; }
         [Required]
-        public string password { get; set; }
-        
+        public string Password { get; set; }
         [NotMapped]
         [Required]
-        [Compare("password",ErrorMessage ="Confirm password doesn't match")]
-        public string repassword { get; set; }
+        [Compare("Password", ErrorMessage = "Confirm password doesn't match")]
+        public string rePassword { get; set; }
 
     }
 }
