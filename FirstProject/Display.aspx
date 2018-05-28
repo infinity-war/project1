@@ -64,23 +64,36 @@
     </div>
 
     <div class="page-content" style="margin-top: 70px;">
-        <form id="form1" runat="server">
-            <div>
 
-                <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-                </asp:GridView>
-                <asp:Label ID="Label1" runat="server" Text="Sort by Lead Name"></asp:Label>
-                <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Username" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                </asp:DropDownList>
-                <asp:Label ID="Label2" runat="server" Text="Sort By Lead Location"></asp:Label>
-                <asp:DropDownList ID="DropDownList2" runat="server" DataTextField="Location" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-                </asp:DropDownList>
-                <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
-                </asp:GridView>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-box-large" style="width: fit-content;">
+                    <div class="panel-heading">
+                        <div class="panel-title">Bootstrap dataTables</div>
+                    </div>
+                    <div class="panel-body">
+                        <form id="form1" runat="server">
+                            <div>
+
+                                <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                </asp:GridView>
+                                <asp:Label ID="Label1" runat="server" CssClass="badge" Text="Sort by Lead Name"></asp:Label>
+                                <asp:DropDownList ID="DropDownList1" CssClass="btn btn-default dropdown-toggle" runat="server" DataTextField="Fname" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                </asp:DropDownList>
+                                <asp:Label ID="Label2" runat="server" CssClass="badge" Text="Sort By Lead Location"></asp:Label>
+                                <asp:DropDownList ID="DropDownList2" CssClass="btn btn-default dropdown-toggle" runat="server" DataTextField="MobileNo" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                                </asp:DropDownList>
+                                <asp:GridView ID="GridView2"  CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                                </asp:GridView>
+                                <asp:Button ID="Button1" CssClass="btn" runat="server" OnClick="Button1_Click" Text="Get Records" />
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
             </div>
-        </form>
+        </div>
 
 
     </div>
@@ -113,6 +126,5 @@
 
         </div>
     </footer>
-
 </body>
 </html>
