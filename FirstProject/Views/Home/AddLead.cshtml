@@ -1,0 +1,98 @@
+﻿@model FirstProject.Models.Lead
+@{
+    ViewBag.Title = "Add Lead";
+}
+
+<h2>LeadAdd</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>Lead</legend>
+
+
+    <div class="editor-field">
+        @Html.DropDownList("id", ViewBag.Dropdown as SelectList, "Select Any")
+    </div>
+
+    -------or------------
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Fname)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Fname)
+        @Html.ValidationMessageFor(model => model.Fname)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Mname)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Mname)
+        @Html.ValidationMessageFor(model => model.Mname)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Lname)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Lname)
+        @Html.ValidationMessageFor(model => model.Lname)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Topic)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Topic)
+        @Html.ValidationMessageFor(model => model.Topic)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LeadSource)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.LeadSource)
+        @Html.ValidationMessageFor(model => model.LeadSource)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Qwner)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Qwner)
+        @Html.ValidationMessageFor(model => model.Qwner)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Email)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.MobileNo)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.MobileNo)
+        @Html.ValidationMessageFor(model => model.MobileNo)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Information)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Information)
+        @Html.ValidationMessageFor(model => model.Information)
+    </div>
+
+    <p>
+        <input type="submit" value="Add" />
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

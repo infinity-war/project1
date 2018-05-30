@@ -19,8 +19,8 @@ namespace FirstProject.Controllers
             }
             else
             {
-                ViewBag.Message = "Please Logind.";
-                return View("Login");
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login"); 
             }
         }
 
@@ -45,7 +45,7 @@ namespace FirstProject.Controllers
             {
                 Session.Remove("username");
             }
-            return View("Login");
+            return RedirectToAction("Login");
 
         }
         [HttpGet]
@@ -116,6 +116,44 @@ namespace FirstProject.Controllers
         public ActionResult ViewInfo()
         {
             return Redirect("~/display.aspx");
+        }
+
+        public ActionResult AddLead()
+        {
+            MDPEntities dc = new MDPEntities();
+            ViewBag.Dropdown = new SelectList(dc.Leads.ToList(), "Id", "Fname");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddLead(Lead i, int? id)
+        {
+            int? leadId = 0;
+            if (id == null)
+            {
+                MDPEntities dc = new MDPEntities();
+                dc.Leads.Add(i);
+                dc.SaveChanges();
+                leadId = i.Id;
+            }
+            else
+                leadId = id;
+
+            Session["leadId"] = leadId;
+            return RedirectToAction("AddInfo");
+        }
+        public ActionResult AddInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddInfo(Information info)
+        {
+            MDPEntities dc = new MDPEntities();
+            info.LeadId = Convert.ToInt32(Session["leadId"]);
+            dc.Information.Add(info);
+            dc.SaveChanges();
+            return RedirectToAction("ViewInfo");
         }
 
     }

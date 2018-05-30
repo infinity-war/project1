@@ -1,6 +1,7 @@
 ﻿using FirstProject.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,10 +40,29 @@ namespace FirstProject
         {
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        public override void VerifyRenderingInServerForm(Control control)
         {
-
+            //required to avoid the run time error "  
+            //Control 'GridView2' of type 'Grid View' must be placed inside a form tag with runat=server."  
+        }
+        protected void GetRecord_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            string FileName = "Records AT " + DateTime.Now + ".xls";
+            StringWriter strwritter = new StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            GridView2.GridLines = GridLines.Both;
+            GridView2.HeaderStyle.Font.Bold = true;
+            GridView2.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

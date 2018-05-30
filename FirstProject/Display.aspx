@@ -85,7 +85,7 @@
                                 </asp:DropDownList>
                                 <asp:GridView ID="GridView2"  CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
                                 </asp:GridView>
-                                <asp:Button ID="Button1" CssClass="btn" runat="server" OnClick="Button1_Click" Text="Get Records" />
+                                <asp:Button ID="Button1" CssClass="btn" runat="server" OnClick="GetRecord_Click" Text="Get Records" />
 
                             </div>
                         </form>
