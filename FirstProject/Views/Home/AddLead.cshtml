@@ -3,94 +3,115 @@
     ViewBag.Title = "Add Lead";
 }
 
-<h2>LeadAdd</h2>
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
 
-<fieldset>
-    <legend>Lead</legend>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-wrapper">
+            <div class="box">
+                <div class="content-wrap">
+                    <h6>Add Lead Information </h6>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                    <div class="form-horizontal">
+                        <hr />
+                        <div class=" badge">
+                            <span>Select Existing Lead</span>
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownList("id", ViewBag.Dropdown as SelectList, "Select Any",new { @Class = "btn btn-default dropdown-toggle" })
+                        </div>
+
+                        --------------------or--------------------
 
 
-    <div class="editor-field">
-        @Html.DropDownList("id", ViewBag.Dropdown as SelectList, "Select Any")
-    </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Fname, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-    -------or------------
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Mname, new { htmlAttributes = new { @placeholder = "Middle name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Fname)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Fname)
-        @Html.ValidationMessageFor(model => model.Fname)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Mname)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Mname)
-        @Html.ValidationMessageFor(model => model.Mname)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Lname)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Lname)
-        @Html.ValidationMessageFor(model => model.Lname)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Topic)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Topic)
-        @Html.ValidationMessageFor(model => model.Topic)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.LeadSource)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.LeadSource)
-        @Html.ValidationMessageFor(model => model.LeadSource)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Qwner)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Qwner)
-        @Html.ValidationMessageFor(model => model.Qwner)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Email)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Email)
-        @Html.ValidationMessageFor(model => model.Email)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.MobileNo)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.MobileNo)
-        @Html.ValidationMessageFor(model => model.MobileNo)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Information)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Information)
-        @Html.ValidationMessageFor(model => model.Information)
-    </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @placeholder = "Last name", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Lname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-    <p>
-        <input type="submit" value="Add" />
-    </p>
-</fieldset>
-}
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Topic, new { htmlAttributes = new { @placeholder = "Topic", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.LeadSource, new { htmlAttributes = new { @placeholder = "Lead Source", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LeadSource, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Qwner, new { htmlAttributes = new { @placeholder = "Qwner", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Qwner, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @placeholder = "Mobile Number", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Information, new { htmlAttributes = new { @placeholder = "Information", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class=" col-md-10">
+                                <input type="submit" value="Add" class="btn btn-default btn-primary signup" />
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="copy text-center">
+            Copyright 2014 <a href='#'>Website</a>
+        </div>
+
+    </div>
+</footer>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
