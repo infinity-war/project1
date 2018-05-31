@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <div class=" col-md-10">
-                                    <input type="submit" value="Create" class="btn btn-default btn-primary signup" />
+                                    <input type="submit" value="Login" class="btn btn-default btn-primary signup" />
                                 </div>
                             </div>
                         </div>
@@ -53,9 +53,11 @@
 
                 </div>
                 <div class="already">
-                    <p>Don't have an account yet?</p>
+                    <p class="h4">Don't have an account yet?</p>
+                        <span class="btn btn-default btn-primary signup">@Html.ActionLink("Sign Up", "Signup", "Home")</span>
+                    
 
-                    @Html.ActionLink("Signup", "Signup", "Home")
+                   
                 </div>
             </div>
 

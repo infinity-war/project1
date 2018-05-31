@@ -18,12 +18,17 @@ namespace FirstProject
             {
                 GridView1.DataSource = db.Leads.ToList();
                 GridView2.DataSource = db.Information.ToList();
+                
+                
                 var x = from rang in db.Leads.ToList() select (new { rang.Id, rang.Fname });
                 DropDownList1.DataSource = x;
                 var y = from rang in db.Leads.ToList() select (new { rang.Id, rang.MobileNo });
                 DropDownList2.DataSource = y;
                 GridView1.DataBind();
                 GridView2.DataBind();
+                //DataControlField n = GridView2.Columns[1];
+                //GridView2.Columns.Remove("Fax");
+               // DataControlField n = GridView2.Columns[1];
                 DropDownList1.DataBind();
                 DropDownList2.DataBind();
                 DropDownList1.Items.Insert(0, "Select any");
@@ -60,7 +65,9 @@ namespace FirstProject
             Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
             GridView2.GridLines = GridLines.Both;
             GridView2.HeaderStyle.Font.Bold = true;
+           
             GridView2.RenderControl(htmltextwrtter);
+            
             Response.Write(strwritter.ToString());
             Response.End();
         }
@@ -71,7 +78,7 @@ namespace FirstProject
             int id;
 
             b = Int32.TryParse(DropDownList1.SelectedValue, out id);
-
+            DropDownList2.SelectedIndex = 0;
             if (b)
             {
                 var x = from rang in db.Leads.ToList() where (id == rang.Id) select rang;
@@ -97,7 +104,7 @@ namespace FirstProject
             int id;
 
             b = Int32.TryParse(DropDownList2.SelectedValue, out id);
-
+            DropDownList1.SelectedIndex=0;
             if (b)
             {
                 var x = from rang in db.Leads.ToList() where (id == rang.Id) select rang;

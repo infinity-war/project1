@@ -75,12 +75,12 @@
                         <form id="form1" runat="server">
                             <div>
 
-                                <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                <asp:GridView ID="GridView1" CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
                                 </asp:GridView>
-                                <asp:Label ID="Label1" runat="server" CssClass="badge" Text="Sort by Lead Name"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" CssClass="badge" Text="Filter by Lead Name"></asp:Label>
                                 <asp:DropDownList ID="DropDownList1" CssClass="btn btn-default dropdown-toggle" runat="server" DataTextField="Fname" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                                 </asp:DropDownList>
-                                <asp:Label ID="Label2" runat="server" CssClass="badge" Text="Sort By Lead Location"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" CssClass="badge" Text="Filter By Lead Mobile"></asp:Label>
                                 <asp:DropDownList ID="DropDownList2" CssClass="btn btn-default dropdown-toggle" runat="server" DataTextField="MobileNo" DataValueField="Id" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:GridView ID="GridView2"  CssClass="table table-striped table-bordered" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">

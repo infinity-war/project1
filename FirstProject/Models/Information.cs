@@ -11,30 +11,52 @@ namespace FirstProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Information
     {
         public int Id { get; set; }
+        [Required]
         public string Salutation { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public int BusinessPhone { get; set; }
+        [Required]
         public int MobilePhone { get; set; }
+        [Required]
         public string FunctionalDepartment { get; set; }
+        [Required]
         public string DepartmentRole { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string InstitutionName1 { get; set; }
+        [Required]
         public string InstitutionName2 { get; set; }
+        [Required]
         public string Street1 { get; set; }
+        [Required]
         public int StreetNo { get; set; }
+        [Required]
         public int PostalCode { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Country { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
         public string OtherComment { get; set; }
+        [Required]
         public string LeadOriginator { get; set; }
+        [Required]
         public string SourceCampaign { get; set; }
+        [Required]
         public string Currency { get; set; }
+        
         public int LeadId { get; set; }
     
         public virtual Lead Lead { get; set; }

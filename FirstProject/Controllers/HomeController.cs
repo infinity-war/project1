@@ -115,14 +115,32 @@ namespace FirstProject.Controllers
 
         public ActionResult ViewInfo()
         {
-            return Redirect("~/display.aspx");
+            if (Session["username"] != null)
+            {
+                return Redirect("~/display.aspx");
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+            
         }
 
         public ActionResult AddLead()
         {
-            MDPEntities dc = new MDPEntities();
-            ViewBag.Dropdown = new SelectList(dc.Leads.ToList(), "Id", "Fname");
-            return View();
+            
+            if (Session["username"] != null)
+            {
+                MDPEntities dc = new MDPEntities();
+                ViewBag.Dropdown = new SelectList(dc.Leads.ToList(), "Id", "Fname");
+                return View();
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
         }
         [HttpPost]
         public ActionResult AddLead(Lead i, int? id)
@@ -143,7 +161,18 @@ namespace FirstProject.Controllers
         }
         public ActionResult AddInfo()
         {
-            return View();
+
+            if (Session["username"] != null)
+            {
+                
+                return View();
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+
         }
 
         [HttpPost]

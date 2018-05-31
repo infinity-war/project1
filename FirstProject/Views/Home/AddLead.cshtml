@@ -2,7 +2,33 @@
 @{
     ViewBag.Title = "Add Lead";
 }
+<script>
 
+    function jsFunction(value) {
+        alert(value);
+        if (value > 0) {
+            document.getElementById('Fname').disabled = true;
+            document.getElementById('Mname').disabled = true;
+            document.getElementById('Lname').disabled = true;
+            document.getElementById('Topic').disabled = true;
+            document.getElementById('LeadSource').disabled = true;
+            document.getElementById('Qwner').disabled = true;
+            document.getElementById('Email').disabled = true;
+            document.getElementById('MobileNo').disabled = true;
+        }
+        else {
+            document.getElementById('Fname').disabled = false;
+            document.getElementById('Mname').disabled = false;
+            document.getElementById('Lname').disabled = false;
+            document.getElementById('Topic').disabled = false;
+            document.getElementById('LeadSource').disabled = false;
+            document.getElementById('Qwner').disabled = false;
+            document.getElementById('Email').disabled = false;
+            document.getElementById('MobileNo').disabled = false;
+        }
+        
+    }
+</script>
 
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
@@ -19,7 +45,7 @@
                             <span>Select Existing Lead</span>
                         </div>
                         <div class="editor-field">
-                            @Html.DropDownList("id", ViewBag.Dropdown as SelectList, "Select Any",new { @Class = "btn btn-default dropdown-toggle" })
+                            @Html.DropDownList("id", ViewBag.Dropdown as SelectList, "Select Any",new { @Class = "btn btn-default dropdown-toggle",@id ="leadDropDown" , @onchange = "jsFunction(this.value);" })
                         </div>
 
                         --------------------or--------------------
@@ -27,63 +53,63 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Fname, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Fname, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control" ,@id = "Fname" } })
                                 @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Mname, new { htmlAttributes = new { @placeholder = "Middle name", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Mname, new { htmlAttributes = new { @placeholder = "Middle name", @class = "form-control", @id = "Mname" } })
                                 @Html.ValidationMessageFor(model => model.Mname, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @placeholder = "Last name", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @placeholder = "Last name", @class = "form-control", @id = "Lname" } })
                                 @Html.ValidationMessageFor(model => model.Lname, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Topic, new { htmlAttributes = new { @placeholder = "Topic", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Topic, new { htmlAttributes = new { @placeholder = "Topic", @class = "form-control", @id = "Topic" } })
                                 @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.LeadSource, new { htmlAttributes = new { @placeholder = "Lead Source", @class = "form-control" } })
+                                @Html.EditorFor(model => model.LeadSource, new { htmlAttributes = new { @placeholder = "Lead Source", @class = "form-control" }, @id = "LeadSource" })
                                 @Html.ValidationMessageFor(model => model.LeadSource, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Qwner, new { htmlAttributes = new { @placeholder = "Qwner", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Qwner, new { htmlAttributes = new { @placeholder = "Qwner", @class = "form-control" }, @id = "Qwner" })
                                 @Html.ValidationMessageFor(model => model.Qwner, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @class = "form-control" }, @id = "Email" })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @placeholder = "Mobile Number", @class = "form-control" } })
+                                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @placeholder = "Mobile Number", @class = "form-control" }, @id = "MobileNo" })
                                 @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Information, new { htmlAttributes = new { @placeholder = "Information", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Information, new { htmlAttributes = new { @placeholder = "Information", @class = "form-control" }, @id = "Information" })
                                 @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
                             </div>
                         </div>

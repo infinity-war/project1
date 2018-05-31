@@ -11,7 +11,7 @@ namespace FirstProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Lead
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +19,23 @@ namespace FirstProject.Models
         {
             this.Information = new HashSet<Information>();
         }
-    
+        
         public int Id { get; set; }
+        [Required]
         public string Fname { get; set; }
+        [Required]
         public string Mname { get; set; }
+        [Required]
         public string Lname { get; set; }
+        [Required]
         public string Topic { get; set; }
+        [Required]
         public string LeadSource { get; set; }
+        [Required]
         public string Qwner { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public int MobileNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
