@@ -1,7 +1,9 @@
 ﻿using FirstProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -183,6 +185,98 @@ namespace FirstProject.Controllers
             dc.Information.Add(info);
             dc.SaveChanges();
             return RedirectToAction("ViewInfo");
+
+        }
+        public ActionResult EditInfo(int Id)
+        {
+            if (Session["username"] != null)
+            {
+                MDPEntities dc = new MDPEntities();
+                Information info = dc.Information.Find(Id);
+                ViewBag.Dropdown = new SelectList(dc.Leads.ToList(), "Id", "Fname");
+                return View(info);
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+            
+        }
+        [HttpPost]
+        public ActionResult EditInfo([Bind(Include = "Id,Salutation,Title,FirstName,BusinessPhone,MobilePhone,FunctionalDepartment,DepartmentRole,Email,InstitutionName1,InstitutionName2,Street1,StreetNo,PostalCode,City,Country,State,OtherComment,LeadOriginator,SourceCampaign,Currency,LeadId")] Information information)
+        {
+            MDPEntities db = new MDPEntities();
+            if (ModelState.IsValid)
+            {
+               
+                db.Entry(information).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("UpdateInfo");
+            }
+            ViewBag.Dropdown = new SelectList(db.Leads.ToList(), "Id", "Fname");
+            return View(information);
+
+        }
+
+        public ActionResult UpdateInfo()
+        {
+            if (Session["username"] != null)
+            {
+                MDPEntities dc = new MDPEntities();
+                return View(dc.Information.ToList());
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+            
+        }
+        public ActionResult DeleteInfo(int? id)
+        {
+            if (Session["username"] != null)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                MDPEntities dc = new MDPEntities();
+                Information information = dc.Information.Find(id);
+                if (information == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(information);
+
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+
+        }
+        // POST: Home/DeleteInfo/5
+        [HttpPost, ActionName("DeleteInfo")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            if (Session["username"] != null)
+            {
+                MDPEntities db = new MDPEntities();
+                Information information = db.Information.Find(id);
+                db.Information.Remove(information);
+                db.SaveChanges();
+                return RedirectToAction("UpdateInfo");
+
+            }
+            else
+            {
+                ViewBag.Message = "Please Login.";
+                return RedirectToAction("Login");
+            }
+            
         }
 
     }

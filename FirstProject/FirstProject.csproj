@@ -943,6 +943,9 @@
     <Content Include="Views\Home\Display.cshtml" />
     <Content Include="Views\Home\AddInfo.cshtml" />
     <Content Include="Views\Home\AddLead.cshtml" />
+    <Content Include="Views\Home\EditInfo.cshtml" />
+    <Content Include="Views\Home\UpdateInfo.cshtml" />
+    <Content Include="Views\Home\DeleteInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
