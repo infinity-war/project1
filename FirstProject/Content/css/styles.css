@@ -422,14 +422,14 @@ body {
   font-size: 18px;
   font-weight: 600;
 }
-.login-wrapper .box input[type="text"],
-.login-wrapper .box input[type="password"] {
-  font-size: 15px;
-  height: 40px;
-  margin-bottom: 10px;
-  border-color: #b2bfc7;
-  padding-left: 12px;
-}
+    .login-wrapper .box input[type="text"],
+    .login-wrapper .box input[type="password"] .box input[type="number"] {
+        font-size: 15px;
+        height: 40px;
+        margin-bottom: 10px;
+        border-color: #b2bfc7;
+        padding-left: 12px;
+    }
 .login-wrapper .box input[type="text"]:focus,
 .login-wrapper .box input[type="password"]:focus {
   border: 1px solid #28a0e5;
