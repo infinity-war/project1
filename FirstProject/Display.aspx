@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="content-box-large" style="width: fit-content;">
+                <div class="content-box-large" style="margin-top: 50px;margin-bottom: 100px;width: fit-content;">
                     <div class="panel-heading">
                         <div class="panel-title">Bootstrap dataTables</div>
                     </div>
